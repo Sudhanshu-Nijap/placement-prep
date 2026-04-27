@@ -1,0 +1,32 @@
+Algorithm: Differnce Array Technique
+
+Intuition:
+
+The problem asks to add a value to a range of elements in an array. 
+Instead of iterating through the range and adding the value, 
+we can use a difference array to achieve the same result in O(1) time.
+
+Why it works:
+
+arr[start] += val
+arr[end + 1] -= val
+Then we compute the prefix sum of the array, 
+the value val will be added to all elements from index start to end.
+
+Example:
+arr = [0, 0, 0, 0, 0]
+updates = [[1, 3, 2], [2, 4, 3], [0, 2, -2]]
+
+Step 1: Initialize difference array
+nums = [0, 0, 0, 0, 0, 0]
+
+Step 2: Process updates
+For [1, 3, 2]: nums[1] += 2, nums[4] -= 2  => [0, 2, 0, 0, -2, 0]
+For [2, 4, 3]: nums[2] += 3, nums[5] -= 3  => [0, 2, 3, 0, -2, -3]
+For [0, 2, -2]: nums[0] += -2, nums[3] -= -2 => [-2, 2, 3, 2, -2, -3]
+
+Step 3: Compute prefix sum
+result = [0, 2, 5, 7, 5, 2]
+
+Time Complexity: O(n)
+Space Complexity: O(n)
