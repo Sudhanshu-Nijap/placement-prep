@@ -40,7 +40,7 @@ def max_consective_ones(nums,k):
 
 # Optimal: replaced while with if
 
-ef max_consective_ones(nums,k):
+def max_consective_ones(nums,k):
     l = 0
     zeros = 0
     maxlen = 0
